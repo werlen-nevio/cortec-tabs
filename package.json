@@ -2,8 +2,9 @@
   "name": "cortec-tabs",
   "displayName": "cortec-tabs",
   "publisher": "neviowerlen",
+	"icon": "assets/icon.png",
   "description": "Change the color of Cortec tabs",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.99.0"
   },
