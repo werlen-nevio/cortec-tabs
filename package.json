@@ -1,0 +1,68 @@
+{
+  "name": "cortec-tabs",
+  "displayName": "cortec-tabs",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "menus": {},
+    "themes": [],
+    "iconThemes": [],
+    "colors": [
+      {
+        "id": "cortec.boot",
+        "description": "Custom color for boot files",
+        "defaults": {
+          "dark": "#77021d",
+          "light": "#77021d",
+          "highContrast": "#77021d"
+        }
+      },
+      {
+        "id": "cortec.clientsbootstrap",
+        "description": "Custom color for clients-bootstrap files",
+        "defaults": {
+          "dark": "#a5008f",
+          "light": "#a5008f",
+          "highContrast": "#a5008f"
+        }
+      },
+      {
+        "id": "cortec.globalincludes",
+        "description": "Custom color for globalinclude files",
+        "defaults": {
+          "dark": "#009a57",
+          "light": "#009a57",
+          "highContrast": "#009a57"
+        }
+      }
+    ]
+  },
+  "enabledApiProposals": ["tabInputMultiDiff"],
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.99.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^9.16.0",
+    "typescript": "^5.7.2",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
