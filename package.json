@@ -1,8 +1,8 @@
 {
   "name": "cortec-tabs",
   "displayName": "cortec-tabs",
-  "description": "",
-  "version": "0.0.1",
+  "description": "Change the color of Cortec tabs",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.99.0"
   },
