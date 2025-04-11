@@ -2,7 +2,8 @@ import * as vscode from 'vscode';
 import { SettingsViewProvider } from './settings';
 
 export function activate(context: vscode.ExtensionContext) {
-    // 1. Register File Decoration Provider
+    // Handel old colors
+    // TODO: Handle new settings
     const provider: vscode.FileDecorationProvider = {
         provideFileDecoration(uri) {
             const filePath = uri.fsPath;
@@ -37,18 +38,13 @@ export function activate(context: vscode.ExtensionContext) {
     const decorationDisposable = vscode.window.registerFileDecorationProvider(provider);
     context.subscriptions.push(decorationDisposable);
 
-    // 2. Register Webview View (Activity Panel)
+    // Register Webview View for settings
     const settingsViewProvider = new SettingsViewProvider(context);
     context.subscriptions.push(
         vscode.window.registerWebviewViewProvider(SettingsViewProvider.viewType, settingsViewProvider)
     );
 
-    // 3. React to config changes
-    vscode.workspace.onDidChangeConfiguration(e => {
-        if (e.affectsConfiguration('cortecColors.bootColor')) {
-            vscode.window.showInformationMessage('Boot-Farbe aktualisiert. Bitte neustarten für volle Wirkung.');
-        }
-    });
+    // TODO: React after settings change
 }
 
 export function deactivate() {}
