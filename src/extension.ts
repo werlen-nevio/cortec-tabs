@@ -1,6 +1,8 @@
 import * as vscode from 'vscode';
+import { SettingsViewProvider } from './settings';
 
 export function activate(context: vscode.ExtensionContext) {
+    // 1. Register File Decoration Provider
     const provider: vscode.FileDecorationProvider = {
         provideFileDecoration(uri) {
             const filePath = uri.fsPath;
@@ -14,14 +16,14 @@ export function activate(context: vscode.ExtensionContext) {
                 };
             }
 
-            if (filePath.includes('/boot/') || filePath.includes('\\clients-bootstrap\\')) {
+            if (filePath.includes('/clients-bootstrap/') || filePath.includes('\\clients-bootstrap\\')) {
                 return {
                     badge: '🍿',
                     color: new vscode.ThemeColor('cortec.clientsbootstrap'),
                 };
             }
 
-            if (filePath.includes('/boot/') || filePath.includes('\\globalincludes\\')) {
+            if (filePath.includes('/globalincludes/') || filePath.includes('\\globalincludes\\')) {
                 return {
                     badge: '⚙️',
                     color: new vscode.ThemeColor('cortec.globalincludes'),
@@ -32,10 +34,16 @@ export function activate(context: vscode.ExtensionContext) {
         }
     };
 
-    const disposable = vscode.window.registerFileDecorationProvider(provider);
-    context.subscriptions.push(disposable);
+    const decorationDisposable = vscode.window.registerFileDecorationProvider(provider);
+    context.subscriptions.push(decorationDisposable);
 
-    // Update Theme Color at runtime (optional enhancement – not required unless dynamically applying the color)
+    // 2. Register Webview View (Activity Panel)
+    const settingsViewProvider = new SettingsViewProvider(context);
+    context.subscriptions.push(
+        vscode.window.registerWebviewViewProvider(SettingsViewProvider.viewType, settingsViewProvider)
+    );
+
+    // 3. React to config changes
     vscode.workspace.onDidChangeConfiguration(e => {
         if (e.affectsConfiguration('cortecColors.bootColor')) {
             vscode.window.showInformationMessage('Boot-Farbe aktualisiert. Bitte neustarten für volle Wirkung.');

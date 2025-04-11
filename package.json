@@ -49,7 +49,26 @@
           "highContrast": "#009a57"
         }
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "folderColorSettings",
+          "title": "Folder Color",
+          "icon": "assets/activity_icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "folderColorSettings": [
+        {
+          "id": "folderColorSettings",
+          "name": "Settings",
+          "type": "webview",
+          "icon": "assets/activity_icon.svg"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
