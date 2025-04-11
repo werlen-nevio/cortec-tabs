@@ -2,49 +2,41 @@ import * as vscode from 'vscode';
 import { SettingsViewProvider } from './settings';
 
 export function activate(context: vscode.ExtensionContext) {
-    // Handel old colors
-    // TODO: Handle new settings
     const provider: vscode.FileDecorationProvider = {
-        provideFileDecoration(uri) {
-            const filePath = uri.fsPath;
-            const config = vscode.workspace.getConfiguration('cortecColors');
-            const bootColor = config.get<string>('bootColor', '#77021d');
+        provideFileDecoration(uri: vscode.Uri): vscode.ProviderResult<vscode.FileDecoration> {
+            const filePath = uri.fsPath.toLowerCase();
+            const entries = context.globalState.get<any[]>('folderColors') || [];
 
-            if (filePath.includes('/boot/') || filePath.includes('\\boot\\')) {
-                return {
-                    color: new vscode.ThemeColor('cortec.boot'),
-                    propagate: true
-                };
-            }
-
-            if (filePath.includes('/clients-bootstrap/') || filePath.includes('\\clients-bootstrap\\')) {
-                return {
-                    badge: '🍿',
-                    color: new vscode.ThemeColor('cortec.clientsbootstrap'),
-                };
-            }
-
-            if (filePath.includes('/globalincludes/') || filePath.includes('\\globalincludes\\')) {
-                return {
-                    badge: '⚙️',
-                    color: new vscode.ThemeColor('cortec.globalincludes'),
-                };
+            for (const entry of entries) {
+                if (filePath.includes(entry.name.toLowerCase())) {
+                    return {
+                        badge: entry.badge || undefined,
+                        color: entry.color ? new vscode.ThemeColor(`cortec.folderColor.${entry.name.toLowerCase()}`) : undefined,
+                        propagate: true
+                    };
+                }
             }
 
             return undefined;
         }
     };
 
-    const decorationDisposable = vscode.window.registerFileDecorationProvider(provider);
-    context.subscriptions.push(decorationDisposable);
+    const providerDisposable = vscode.window.registerFileDecorationProvider(provider);
+    context.subscriptions.push(providerDisposable);
 
-    // Register Webview View for settings
+    // Webview-Provider registrieren
     const settingsViewProvider = new SettingsViewProvider(context);
     context.subscriptions.push(
         vscode.window.registerWebviewViewProvider(SettingsViewProvider.viewType, settingsViewProvider)
     );
 
-    // TODO: React after settings change
+    // Event-Listener, um manuell refresh zu triggern
+    vscode.commands.registerCommand('cortecColors.refreshDecorations', () => {
+        // Trick: Re-registrieren, um Änderung zu triggern
+        providerDisposable.dispose();
+        const newProvider = vscode.window.registerFileDecorationProvider(provider);
+        context.subscriptions.push(newProvider);
+    });
 }
 
 export function deactivate() {}

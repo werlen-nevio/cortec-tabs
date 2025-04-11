@@ -38,12 +38,23 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
                     }
 
                     await this.context.globalState.update('folderColors', entries);
+
+                    // Decorations refreshen
+                    vscode.commands.executeCommand('cortecColors.refreshDecorations');                    
+
                     updateWebview();
                     break;
                 case 'deleteEntry':
                     entries.splice(message.index, 1);
                     await this.context.globalState.update('folderColors', entries);
+
                     updateWebview();
+
+                    await this.context.globalState.update('folderColors', entries);
+
+                    // Decorations refreshen
+                    vscode.commands.executeCommand('cortecColors.refreshDecorations');
+
                     break;
                 case 'getEntries':
                     updateWebview();
