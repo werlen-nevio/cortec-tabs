@@ -20,7 +20,7 @@ export class FolderColorDecorationProvider implements vscode.FileDecorationProvi
 
         for (const entry of entries) {
             // If the path contains the folder name (case-insensitive)
-            if (filePath.includes(entry.foldername.toLowerCase())) {
+            if (filePath.includes(`/${entry.foldername.toLowerCase()}/`) || filePath.includes(`\\${entry.foldername.toLowerCase()}\\`)) {
                 return {
                     color: new vscode.ThemeColor(`${entry.color.toLowerCase()}`),
                     propagate: true
