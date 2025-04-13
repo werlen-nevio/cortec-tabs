@@ -1,13 +1,13 @@
-# Cortec Tabs
+# Folder Tabs
 
 A **Visual Studio Code** extension that individually labels file tabs and icons to make important project folders more visible.
 
-![VS Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/neviowerlen.cortec-tabs?color=blue&label=VS%20Marketplace)
-![VS Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/neviowerlen.cortec-tabs?color=brightgreen)
-![VS Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/neviowerlen.cortec-tabs?color=orange)
+![VS Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/neviowerlen.folder-tabs?color=blue&label=VS%20Marketplace)
+![VS Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/neviowerlen.folder-tabs?color=brightgreen)
+![VS Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/neviowerlen.folder-tabs?color=orange)
 
-![GitHub release](https://img.shields.io/github/v/release/werlen-nevio/cortec-tabs?color=blue)
-![GitHub license](https://img.shields.io/github/license/werlen-nevio/cortec-tabs?color=green)
+![GitHub release](https://img.shields.io/github/v/release/werlen-nevio/folder-tabs?color=blue)
+![GitHub license](https://img.shields.io/github/license/werlen-nevio/folder-tabs?color=green)
 
 ## Images
 ### Tabs
@@ -20,9 +20,9 @@ A **Visual Studio Code** extension that individually labels file tabs and icons 
 - Color **highlighting** of special folders and files.
 
 ## Installation
-- **VS Code Marketplace:** [Marketplace](https://marketplace.visualstudio.com/items?itemName=neviowerlen.cortec-tabs&ssr=false#overview)
+- **VS Code Marketplace:** [Marketplace](https://marketplace.visualstudio.com/items?itemName=neviowerlen.folder-tabs&ssr=false#overview)
 
-- **Github:** [Github](https://github.com/werlen-nevio/cortec-tabs)
+- **Github:** [Github](https://github.com/werlen-nevio/folder-tabs)
 
 ## Development
 

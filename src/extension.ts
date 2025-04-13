@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     // Registers a command to update the decorations
-    vscode.commands.registerCommand('cortecColors.refreshDecorations', () => {
+    vscode.commands.registerCommand('folderColors.refreshDecorations', () => {
         decorationProvider.refresh();
     });
 }

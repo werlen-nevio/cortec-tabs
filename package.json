@@ -1,16 +1,16 @@
 {
-  "name": "cortec-tabs",
-  "displayName": "cortec-tabs",
+  "name": "folder-tabs",
+  "displayName": "folder-tabs",
   "publisher": "neviowerlen",
 	"icon": "assets/icon.png",
-  "description": "Change the color of Cortec tabs",
+  "description": "Change the color of Folder tabs",
   "version": "1.0.0",
   "engines": {
     "vscode": "^1.99.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/werlen-nevio/cortec-tabs.git"
+    "url": "https://github.com/werlen-nevio/folder-tabs"
   },
   "categories": [
     "Other"
