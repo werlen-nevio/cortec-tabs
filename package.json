@@ -1,16 +1,16 @@
 {
-  "name": "folder-tabs",
-  "displayName": "folder-tabs",
+  "name": "folder-colors",
+  "displayName": "folder-colors",
   "publisher": "neviowerlen",
   "icon": "assets/icon.png",
   "description": "Change the color of Folder tabs",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "engines": {
     "vscode": "^1.99.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/werlen-nevio/folder-tabs"
+    "url": "https://github.com/werlen-nevio/folder-colors"
   },
   "categories": [
     "Other"
