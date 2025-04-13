@@ -25,12 +25,12 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
                 case 'saveEntry':
                     if (message.editIndex !== undefined) {
                         entries[message.editIndex] = {
-                            name: message.name,
+                            foldername: message.foldername,
                             color: message.color
                         };
                     } else {
                         entries.push({
-                            name: message.name,
+                            foldername: message.foldername,
                             color: message.color
                         });
                     }
@@ -42,8 +42,7 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
 
                 case 'deleteEntry':
                     if (message.index >= 0 && message.index < entries.length) {
-                        await entries.splice(message.index, 1);
-
+                        entries.splice(message.index, 1);
                         await this.context.globalState.update('folderColors', entries);
                         vscode.commands.executeCommand('cortecColors.refreshDecorations');
                         updateWebview();
@@ -89,8 +88,10 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
     private getHtml(entries: any[]): string {
         const rows = entries.map((entry, index) => `
             <tr>
-                <td>${entry.name}</td>
-                <td><span style="color:${this.getHexColor(entry.color)}; padding: 2px 6px; border-radius: 4px;">${entry.color}</span></td>
+                <td>${entry.foldername}</td>
+                <td>
+                    <div style="background-color:${this.getHexColor(entry.color)}; width: 10px; height: 10px; border-radius: 10px; display: inline-block;"></div>
+                </td>
             </tr>
             <tr>
                 <td colspan="3" style="text-align: center;">
@@ -171,8 +172,8 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
 </head>
 <body>
     <h2>Folder Color Settings</h2>
-    <label>Name</label>
-    <input id="name" type="text" />
+    <label>Folder Name</label>
+    <input id="foldername" type="text" />
 
     <label>Color</label>
     <select id="color">
@@ -205,7 +206,7 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
     <table>
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Folder Name</th>
                 <th>Color</th>
             </tr>
         </thead>
@@ -218,13 +219,13 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
         const vscode = acquireVsCodeApi();
 
         function save() {
-            const name = document.getElementById('name').value;
+            const foldername = document.getElementById('foldername').value;
             const color = document.getElementById('color').value;
             const editIndex = document.getElementById('editIndex').value;
 
             vscode.postMessage({
                 command: 'saveEntry',
-                name,
+                foldername,
                 color,
                 editIndex: editIndex ? parseInt(editIndex) : undefined
             });
@@ -236,7 +237,7 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
             const row = document.querySelectorAll("tbody tr")[index * 2];
             const cells = row.getElementsByTagName("td");
 
-            document.getElementById('name').value = cells[0].innerText;
+            document.getElementById('foldername').value = cells[0].innerText;
             const span = cells[1].querySelector('span');
             const colorText = span.textContent;
             document.getElementById('color').value = colorText;
@@ -248,7 +249,7 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
         }
 
         function clearForm() {
-            document.getElementById('name').value = '';
+            document.getElementById('foldername').value = '';
             document.getElementById('color').selectedIndex = 0;
             document.getElementById('editIndex').value = '';
         }

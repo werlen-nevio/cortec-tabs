@@ -10,7 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
             const entries = context.globalState.get<any[]>('folderColors') || [];
 
             for (const entry of entries) {
-                if (filePath.includes(entry.name.toLowerCase())) {
+                if (filePath.includes(entry.foldername.toLowerCase())) {
                     // If entrie matches entry, return a decoration with color
                     return {
                         color: new vscode.ThemeColor(`${entry.color.toLowerCase()}`),
