@@ -11,9 +11,8 @@ export function activate(context: vscode.ExtensionContext) {
 
             for (const entry of entries) {
                 if (filePath.includes(entry.name.toLowerCase())) {
-                    // If entrie matches entry, return a decoration with badge and color
+                    // If entrie matches entry, return a decoration with color
                     return {
-                        badge: entry.badge || undefined,
                         color: new vscode.ThemeColor(`${entry.color.toLowerCase()}`),
                         propagate: true 
                     };
