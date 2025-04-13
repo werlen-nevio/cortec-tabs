@@ -221,6 +221,7 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
 
                 <script>
                     const vscode = acquireVsCodeApi();
+                    const entries = ${JSON.stringify(entries)};
 
                     function save() {
                         const foldername = document.getElementById('foldername').value;
