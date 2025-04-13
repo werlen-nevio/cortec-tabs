@@ -1,41 +1,28 @@
 import * as vscode from 'vscode';
+import { FolderColorDecorationProvider } from './FolderColorDecorationProvider';
 import { SettingsViewProvider } from './settings';
 
 export function activate(context: vscode.ExtensionContext) {
-    const provider: vscode.FileDecorationProvider = {
-        provideFileDecoration(uri: vscode.Uri): vscode.ProviderResult<vscode.FileDecoration> {
-            const filePath = uri.fsPath.toLowerCase();
+    const decorationProvider = new FolderColorDecorationProvider(context);
 
-            // Get the saved folder colors from global state
-            const entries = context.globalState.get<any[]>('folderColors') || [];
+    // Registers the decoration provider to display custom colors
+    context.subscriptions.push(
+        vscode.window.registerFileDecorationProvider(decorationProvider)
+    );
 
-            for (const entry of entries) {
-                if (filePath.includes(entry.foldername.toLowerCase())) {
-                    // If entrie matches entry, return a decoration with color
-                    return {
-                        color: new vscode.ThemeColor(`${entry.color.toLowerCase()}`),
-                        propagate: true 
-                    };
-                }
-            }
+    // Creates the settings view and passes a callback to reload the decorations, once changes are made
+    const settingsViewProvider = new SettingsViewProvider(context, () => {
+        decorationProvider.refresh();
+    });
 
-            return undefined;
-        }
-    };
-
-    const providerDisposable = vscode.window.registerFileDecorationProvider(provider);
-    context.subscriptions.push(providerDisposable);
-
-    const settingsViewProvider = new SettingsViewProvider(context);
+    // Registers the Webview view
     context.subscriptions.push(
         vscode.window.registerWebviewViewProvider(SettingsViewProvider.viewType, settingsViewProvider)
     );
 
-    // Register a command to refresh decorations
+    // Registers a command to update the decorations
     vscode.commands.registerCommand('cortecColors.refreshDecorations', () => {
-        providerDisposable.dispose();
-        const newProvider = vscode.window.registerFileDecorationProvider(provider);
-        context.subscriptions.push(newProvider);
+        decorationProvider.refresh();
     });
 }
 
