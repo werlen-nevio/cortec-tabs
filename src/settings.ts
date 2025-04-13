@@ -182,9 +182,26 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
 
                 <label>Color</label>
                 <select id="color">
-                    ${Object.entries(this.getHexColor).map(([key, hex]) => `
-                        <option style="color: ${hex}" value="${key}">${key.replace('foldercolors_', '').replace(/_/g, ' ')}</option>
-                    `).join('')}
+                    <option style="color: #FF5733" value="foldercolors_red_orange">Red Orange</option>
+                    <option style="color: #FF0000" value="foldercolors_red">Red</option>
+                    <option style="color: #FF69B4" value="foldercolors_hot_pink">Hot Pink</option>
+                    <option style="color: #FFC300" value="foldercolors_yellow">Yellow</option>
+                    <option style="color: #FFFF00" value="foldercolors_lemon_yellow">Lemon Yellow</option>
+                    <option style="color: #75FF33" value="foldercolors_lime_green">Lime Green</option>
+                    <option style="color: #008000" value="foldercolors_green">Green</option>
+                    <option style="color: #00CED1" value="foldercolors_turquoise">Turquoise</option>
+                    <option style="color: #33C1FF" value="foldercolors_sky_blue">Sky Blue</option>
+                    <option style="color: #007ACC" value="foldercolors_vs_code_blue">VS Code Blue</option>
+                    <option style="color: #0000FF" value="foldercolors_blue">Blue</option>
+                    <option style="color: #4B0082" value="foldercolors_indigo">Indigo</option>
+                    <option style="color: #800080" value="foldercolors_purple">Purple</option>
+                    <option style="color: #C700FF" value="foldercolors_violet">Violet</option>
+                    <option style="color: #FF33A6" value="foldercolors_magenta">Magenta</option>
+                    <option style="color: #FFFFFF" value="foldercolors_white">White</option>
+                    <option style="color: #D3D3D3" value="foldercolors_light_gray">Light Gray</option>
+                    <option style="color: #888888" value="foldercolors_gray">Gray</option>
+                    <option style="color: #444444" value="foldercolors_dark_gray">Dark Gray</option>
+                    <option style="color: #000000" value="foldercolors_black">Black</option>
                 </select>
 
                 <input type="hidden" id="editIndex" />
