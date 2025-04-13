@@ -2,9 +2,9 @@
 
 A **Visual Studio Code** extension that individually labels file tabs and icons to make important project folders more visible.
 
-![VS Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/neviowerlen.folder-colors?color=blue&label=VS%20Marketplace)
-![VS Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/neviowerlen.folder-colors?color=brightgreen)
-![VS Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/neviowerlen.folder-colors?color=orange)
+![VS Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/neviowerlen.folder-tab-colors?color=blue&label=VS%20Marketplace)
+![VS Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/neviowerlen.folder-tab-colors?color=brightgreen)
+![VS Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/neviowerlen.folder-tab-colors?color=orange)
 
 ![GitHub release](https://img.shields.io/github/v/release/werlen-nevio/folder-colors?color=blue)
 ![GitHub license](https://img.shields.io/github/license/werlen-nevio/folder-colors?color=green)
