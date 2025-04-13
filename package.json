@@ -1,6 +1,6 @@
 {
-  "name": "folder-colors",
-  "displayName": "folder-colors",
+  "name": "folder-tab-colors",
+  "displayName": "Folder Tab Colors",
   "publisher": "neviowerlen",
   "icon": "assets/icon.png",
   "description": "Change the color of Folder tabs",
