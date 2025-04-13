@@ -60,26 +60,26 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
 
     private getHexColor(color: string): string {
         const colorMap: { [key: string]: string } = {
-            'Red Orange': '#FF5733',
-            'Red': '#FF0000',
-            'Hot Pink': '#FF69B4',
-            'Yellow': '#FFC300',
-            'Lemon Yellow': '#FFFF00',
-            'Lime Green': '#75FF33',
-            'Green': '#008000',
-            'Turquoise': '#00CED1',
-            'Sky Blue': '#33C1FF',
-            'VS Code Blue': '#007ACC',
-            'Blue': '#0000FF',
-            'Indigo': '#4B0082',
-            'Purple': '#800080',
-            'Violet': '#C700FF',
-            'Magenta': '#FF33A6',
-            'White': '#FFFFFF',
-            'Light Gray': '#D3D3D3',
-            'Gray': '#888888',
-            'Dark Gray': '#444444',
-            'Black': '#000000'
+            'foldercolors_red_orange': '#FF5733',
+            'foldercolors_red': '#FF0000',
+            'foldercolors_hot_pink': '#FF69B4',
+            'foldercolors_yellow': '#FFC300',
+            'foldercolors_lemon_yellow': '#FFFF00',
+            'foldercolors_lime_green': '#75FF33',
+            'foldercolors_green': '#008000',
+            'foldercolors_turquoise': '#00CED1',
+            'foldercolors_sky_blue': '#33C1FF',
+            'foldercolors_vs_code_blue': '#007ACC',
+            'foldercolors_blue': '#0000FF',
+            'foldercolors_indigo': '#4B0082',
+            'foldercolors_purple': '#800080',
+            'foldercolors_violet': '#C700FF',
+            'foldercolors_magenta': '#FF33A6',
+            'foldercolors_white': '#FFFFFF',
+            'foldercolors_light_gray': '#D3D3D3',
+            'foldercolors_gray': '#888888',
+            'foldercolors_dark_gray': '#444444',
+            'foldercolors_black': '#000000'
         };
 
         return colorMap[color] || '#000000';
@@ -176,26 +176,26 @@ export class SettingsViewProvider implements vscode.WebviewViewProvider {
 
                 <label>Color</label>
                 <select id="color">
-                    <option style="color: #FF5733" value="Red Orange">Red Orange</option>
-                    <option style="color: #FF0000" value="Red">Red</option>
-                    <option style="color: #FF69B4" value="Hot Pink">Hot Pink</option>
-                    <option style="color: #FFC300" value="Yellow">Yellow</option>
-                    <option style="color: #FFFF00" value="Lemon Yellow">Lemon Yellow</option>
-                    <option style="color: #75FF33" value="Lime Green">Lime Green</option>
-                    <option style="color: #008000" value="Green">Green</option>
-                    <option style="color: #00CED1" value="Turquoise">Turquoise</option>
-                    <option style="color: #33C1FF" value="Sky Blue">Sky Blue</option>
-                    <option style="color: #007ACC" value="VS Code Blue">VS Code Blue</option>
-                    <option style="color: #0000FF" value="Blue">Blue</option>
-                    <option style="color: #4B0082" value="Indigo">Indigo</option>
-                    <option style="color: #800080" value="Purple">Purple</option>
-                    <option style="color: #C700FF" value="Violet">Violet</option>
-                    <option style="color: #FF33A6" value="Magenta">Magenta</option>
-                    <option style="color: #FFFFFF" value="White">White</option>
-                    <option style="color: #D3D3D3" value="Light Gray">Light Gray</option>
-                    <option style="color: #888888" value="Gray">Gray</option>
-                    <option style="color: #444444" value="Dark Gray">Dark Gray</option>
-                    <option style="color: #000000" value="Black">Black</option>
+                    <option style="color: #FF5733" value="foldercolors_red_orange">Red Orange</option>
+                    <option style="color: #FF0000" value="foldercolors_red">Red</option>
+                    <option style="color: #FF69B4" value="foldercolors_hot_pink">Hot Pink</option>
+                    <option style="color: #FFC300" value="foldercolors_yellow">Yellow</option>
+                    <option style="color: #FFFF00" value="foldercolors_lemon_yellow">Lemon Yellow</option>
+                    <option style="color: #75FF33" value="foldercolors_lime_green">Lime Green</option>
+                    <option style="color: #008000" value="foldercolors_green">Green</option>
+                    <option style="color: #00CED1" value="foldercolors_turquoise">Turquoise</option>
+                    <option style="color: #33C1FF" value="foldercolors_sky_blue">Sky Blue</option>
+                    <option style="color: #007ACC" value="foldercolors_vs_code_blue">VS Code Blue</option>
+                    <option style="color: #0000FF" value="foldercolors_blue">Blue</option>
+                    <option style="color: #4B0082" value="foldercolors_indigo">Indigo</option>
+                    <option style="color: #800080" value="foldercolors_purple">Purple</option>
+                    <option style="color: #C700FF" value="foldercolors_violet">Violet</option>
+                    <option style="color: #FF33A6" value="foldercolors_magenta">Magenta</option>
+                    <option style="color: #FFFFFF" value="foldercolors_white">White</option>
+                    <option style="color: #D3D3D3" value="foldercolors_light_gray">Light Gray</option>
+                    <option style="color: #888888" value="foldercolors_gray">Gray</option>
+                    <option style="color: #444444" value="foldercolors_dark_gray">Dark Gray</option>
+                    <option style="color: #000000" value="foldercolors_black">Black</option>
                 </select>
 
                 <label>Badge</label>

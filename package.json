@@ -22,31 +22,184 @@
     "themes": [],
     "iconThemes": [],
     "colors": [
+      {  
+        "id": "foldercolors_red_orange",
+          "description": "Folder Color Red Orange",
+          "defaults": {
+            "dark": "#FF5733",
+            "light": "#FF5733",
+            "highContrast": "#FF5733"
+          }
+      },
       {
-        "id": "cortec.boot",
-        "description": "Custom color for boot files",
+        "id": "foldercolors_red",
+        "description": "Folder Color Red",
         "defaults": {
-          "dark": "#77021d",
-          "light": "#77021d",
-          "highContrast": "#77021d"
+          "dark": "#FF0000",
+          "light": "#FF0000",
+          "highContrast": "#FF0000"
         }
       },
       {
-        "id": "cortec.clientsbootstrap",
-        "description": "Custom color for clients-bootstrap files",
+        "id": "foldercolors_hot_pink",
+        "description": "Folder Color Hot Pink",
         "defaults": {
-          "dark": "#a5008f",
-          "light": "#a5008f",
-          "highContrast": "#a5008f"
+          "dark": "#FF69B4",
+          "light": "#FF69B4",
+          "highContrast": "#FF69B4"
         }
       },
       {
-        "id": "cortec.globalincludes",
-        "description": "Custom color for globalinclude files",
+        "id": "foldercolors_yellow",
+        "description": "Folder Color Yellow",
         "defaults": {
-          "dark": "#009a57",
-          "light": "#009a57",
-          "highContrast": "#009a57"
+          "dark": "#FFC300",
+          "light": "#FFC300",
+          "highContrast": "#FFC300"
+        }
+      },
+      {
+        "id": "foldercolors_lemon_yellow",
+        "description": "Folder Color Lemon Yellow",
+        "defaults": {
+          "dark": "#FFFF00",
+          "light": "#FFFF00",
+          "highContrast": "#FFFF00"
+        }
+      },
+      {
+        "id": "foldercolors_lime_green",
+        "description": "Folder Color Lime Green",
+        "defaults": {
+          "dark": "#75FF33",
+          "light": "#75FF33",
+          "highContrast": "#75FF33"
+        }
+      },
+      {
+        "id": "foldercolors_green",
+        "description": "Folder Color Green",
+        "defaults": {
+          "dark": "#008000",
+          "light": "#008000",
+          "highContrast": "#008000"
+        }
+      },
+      {
+        "id": "foldercolors_turquoise",
+        "description": "Folder Color Turquoise",
+        "defaults": {
+          "dark": "#00CED1",
+          "light": "#00CED1",
+          "highContrast": "#00CED1"
+        }
+      },
+      {
+        "id": "foldercolors_sky_blue",
+        "description": "Folder Color Sky Blue",
+        "defaults": {
+          "dark": "#33C1FF",
+          "light": "#33C1FF",
+          "highContrast": "#33C1FF"
+        }
+      },
+      {
+        "id": "foldercolors_vs_code_blue",
+        "description": "Folder Color VS Code Blue",
+        "defaults": {
+          "dark": "#007ACC",
+          "light": "#007ACC",
+          "highContrast": "#007ACC"
+        }
+      },
+      {
+        "id": "foldercolors_blue",
+        "description": "Folder Color Blue",
+        "defaults": {
+          "dark": "#0000FF",
+          "light": "#0000FF",
+          "highContrast": "#0000FF"
+        }
+      },
+      {
+        "id": "foldercolors_indigo",
+        "description": "Folder Color Indigo",
+        "defaults": {
+          "dark": "#4B0082",
+          "light": "#4B0082",
+          "highContrast": "#4B0082"
+        }
+      },
+      {
+        "id": "foldercolors_purple",
+        "description": "Folder Color Purple",
+        "defaults": {
+          "dark": "#800080",
+          "light": "#800080",
+          "highContrast": "#800080"
+        }
+      },
+      {
+        "id": "foldercolors_violet",
+        "description": "Folder Color Violet",
+        "defaults": {
+          "dark": "#C700FF",
+          "light": "#C700FF",
+          "highContrast": "#C700FF"
+        }
+      },
+      {
+        "id": "foldercolors_magenta",
+        "description": "Folder Color Magenta",
+        "defaults": {
+          "dark": "#FF33A6",
+          "light": "#FF33A6",
+          "highContrast": "#FF33A6"
+        }
+      },
+      {
+        "id": "foldercolors_white",
+        "description": "Folder Color White",
+        "defaults": {
+          "dark": "#FFFFFF",
+          "light": "#FFFFFF",
+          "highContrast": "#FFFFFF"
+        }
+      },
+      {
+        "id": "foldercolors_light_gray",
+        "description": "Folder Color Light Gray",
+        "defaults": {
+          "dark": "#D3D3D3",
+          "light": "#D3D3D3",
+          "highContrast": "#D3D3D3"
+        }
+      },
+      {
+        "id": "foldercolors_gray",
+        "description": "Folder Color Gray",
+        "defaults": {
+          "dark": "#888888",
+          "light": "#888888",
+          "highContrast": "#888888"
+        }
+      },
+      {
+        "id": "foldercolors_dark_gray",
+        "description": "Folder Color Dark Gray",
+        "defaults": {
+          "dark": "#444444",
+          "light": "#444444",
+          "highContrast": "#444444"
+        }
+      },
+      {
+        "id": "foldercolors_black",
+        "description": "Folder Color Black",
+        "defaults": {
+          "dark": "#000000",
+          "light": "#000000",
+          "highContrast": "#000000"
         }
       }
     ],

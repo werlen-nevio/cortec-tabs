@@ -11,7 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
                 if (filePath.includes(entry.name.toLowerCase())) {
                     return {
                         badge: entry.badge || undefined,
-                        color: entry.color ? new vscode.ThemeColor(`cortec.folderColor.${entry.name.toLowerCase()}`) : undefined,
+                        color: new vscode.ThemeColor(`${entry.color.toLowerCase()}`),
                         propagate: true
                     };
                 }
@@ -24,15 +24,14 @@ export function activate(context: vscode.ExtensionContext) {
     const providerDisposable = vscode.window.registerFileDecorationProvider(provider);
     context.subscriptions.push(providerDisposable);
 
-    // Webview-Provider registrieren
+    // Register Webview-Provider
     const settingsViewProvider = new SettingsViewProvider(context);
     context.subscriptions.push(
         vscode.window.registerWebviewViewProvider(SettingsViewProvider.viewType, settingsViewProvider)
     );
 
-    // Event-Listener, um manuell refresh zu triggern
+    // Event-Listener to trigger refresh
     vscode.commands.registerCommand('cortecColors.refreshDecorations', () => {
-        // Trick: Re-registrieren, um Änderung zu triggern
         providerDisposable.dispose();
         const newProvider = vscode.window.registerFileDecorationProvider(provider);
         context.subscriptions.push(newProvider);
