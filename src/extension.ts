@@ -5,14 +5,17 @@ export function activate(context: vscode.ExtensionContext) {
     const provider: vscode.FileDecorationProvider = {
         provideFileDecoration(uri: vscode.Uri): vscode.ProviderResult<vscode.FileDecoration> {
             const filePath = uri.fsPath.toLowerCase();
+
+            // Get the saved folder colors from global state
             const entries = context.globalState.get<any[]>('folderColors') || [];
 
             for (const entry of entries) {
                 if (filePath.includes(entry.name.toLowerCase())) {
+                    // If entrie matches entry, return a decoration with badge and color
                     return {
                         badge: entry.badge || undefined,
                         color: new vscode.ThemeColor(`${entry.color.toLowerCase()}`),
-                        propagate: true
+                        propagate: true 
                     };
                 }
             }
@@ -24,13 +27,12 @@ export function activate(context: vscode.ExtensionContext) {
     const providerDisposable = vscode.window.registerFileDecorationProvider(provider);
     context.subscriptions.push(providerDisposable);
 
-    // Register Webview-Provider
     const settingsViewProvider = new SettingsViewProvider(context);
     context.subscriptions.push(
         vscode.window.registerWebviewViewProvider(SettingsViewProvider.viewType, settingsViewProvider)
     );
 
-    // Event-Listener to trigger refresh
+    // Register a command to refresh decorations
     vscode.commands.registerCommand('cortecColors.refreshDecorations', () => {
         providerDisposable.dispose();
         const newProvider = vscode.window.registerFileDecorationProvider(provider);
