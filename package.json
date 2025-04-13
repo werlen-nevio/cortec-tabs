@@ -2,9 +2,9 @@
   "name": "folder-tabs",
   "displayName": "folder-tabs",
   "publisher": "neviowerlen",
-	"icon": "assets/icon.png",
+  "icon": "assets/icon.png",
   "description": "Change the color of Folder tabs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.99.0"
   },
@@ -15,21 +15,23 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": ["onStartupFinished"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "menus": {},
     "themes": [],
     "iconThemes": [],
     "colors": [
-      {  
+      {
         "id": "foldercolors_red_orange",
-          "description": "Folder Color Red Orange",
-          "defaults": {
-            "dark": "#FF5733",
-            "light": "#FF5733",
-            "highContrast": "#FF5733"
-          }
+        "description": "Folder Color Red Orange",
+        "defaults": {
+          "dark": "#FF5733",
+          "light": "#FF5733",
+          "highContrast": "#FF5733"
+        }
       },
       {
         "id": "foldercolors_red",
