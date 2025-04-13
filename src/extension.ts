@@ -1,45 +1,28 @@
 import * as vscode from 'vscode';
+import { FolderColorDecorationProvider } from './FolderColorDecorationProvider';
+import { SettingsViewProvider } from './settings';
 
 export function activate(context: vscode.ExtensionContext) {
-    const provider: vscode.FileDecorationProvider = {
-        provideFileDecoration(uri) {
-            const filePath = uri.fsPath;
-            const config = vscode.workspace.getConfiguration('cortecColors');
-            const bootColor = config.get<string>('bootColor', '#77021d');
+    const decorationProvider = new FolderColorDecorationProvider(context);
 
-            if (filePath.includes('/boot/') || filePath.includes('\\boot\\')) {
-                return {
-                    color: new vscode.ThemeColor('cortec.boot'),
-                    propagate: true
-                };
-            }
+    // Registers the decoration provider to display custom colors
+    context.subscriptions.push(
+        vscode.window.registerFileDecorationProvider(decorationProvider)
+    );
 
-            if (filePath.includes('/boot/') || filePath.includes('\\clients-bootstrap\\')) {
-                return {
-                    badge: '🍿',
-                    color: new vscode.ThemeColor('cortec.clientsbootstrap'),
-                };
-            }
+    // Creates the settings view and passes a callback to reload the decorations, once changes are made
+    const settingsViewProvider = new SettingsViewProvider(context, () => {
+        decorationProvider.refresh();
+    });
 
-            if (filePath.includes('/boot/') || filePath.includes('\\globalincludes\\')) {
-                return {
-                    badge: '⚙️',
-                    color: new vscode.ThemeColor('cortec.globalincludes'),
-                };
-            }
+    // Registers the Webview view
+    context.subscriptions.push(
+        vscode.window.registerWebviewViewProvider(SettingsViewProvider.viewType, settingsViewProvider)
+    );
 
-            return undefined;
-        }
-    };
-
-    const disposable = vscode.window.registerFileDecorationProvider(provider);
-    context.subscriptions.push(disposable);
-
-    // Update Theme Color at runtime (optional enhancement – not required unless dynamically applying the color)
-    vscode.workspace.onDidChangeConfiguration(e => {
-        if (e.affectsConfiguration('cortecColors.bootColor')) {
-            vscode.window.showInformationMessage('Boot-Farbe aktualisiert. Bitte neustarten für volle Wirkung.');
-        }
+    // Registers a command to update the decorations
+    vscode.commands.registerCommand('cortecColors.refreshDecorations', () => {
+        decorationProvider.refresh();
     });
 }
 

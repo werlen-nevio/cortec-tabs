@@ -18,9 +18,6 @@ A **Visual Studio Code** extension that individually labels file tabs and icons 
 
 ## Functions
 - Color **highlighting** of special folders and files.
-- **Icons (badges)** for quick visual orientation:
-  - 🍿 for `clients-bootstrap`
-  - ⚙️ for `globalincludes`
 
 ## Installation
 - **VS Code Marketplace:** [Marketplace](https://marketplace.visualstudio.com/items?itemName=neviowerlen.cortec-tabs&ssr=false#overview)
